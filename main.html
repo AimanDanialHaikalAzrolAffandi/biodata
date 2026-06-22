@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV · Computer Engineer</title>
+  <!-- Google Fonts (strict, professional) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome (optional icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      line-height: 1.5;
+      color: #1e2b3a;
+    }
+
+    /* main card – strict, clean, with subtle shadow & animation */
+    .cv-container {
+      max-width: 1000px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.12), 0 8px 24px -6px rgba(0,0,0,0.05);
+      padding: 2.5rem 2.8rem;
+      transition: all 0.2s ease;
+      animation: fadeSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      border: 1px solid rgba(200, 210, 220, 0.3);
+    }
+
+    @keyframes fadeSlide {
+      0% { opacity: 0; transform: translateY(16px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* strict typography */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0b1a2a;
+      margin-bottom: 0.15rem;
+    }
+
+    .subhead {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #4a5b6b;
+      border-bottom: 2px solid #dce3eb;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .subhead span {
+      display: inline-block;
+      background: #eef3f9;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1f3a57;
+      letter-spacing: 0.3px;
+    }
+
+    /* grid layout */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 2.2fr;
+      gap: 2rem 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    /* left column */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .right-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    /* section styling – strict but with soft animation */
+    .section {
+      animation: fadeUp 0.5s ease forwards;
+      opacity: 0;
+      animation-delay: 0.1s;
+    }
+
+    .section:nth-of-type(2) { animation-delay: 0.2s; }
+    .section:nth-of-type(3) { animation-delay: 0.3s; }
+    .section:nth-of-type(4) { animation-delay: 0.4s; }
+    .section:nth-of-type(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(6px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: #2a4b6e;
+      border-bottom: 2px solid #d0d9e3;
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title i {
+      font-size: 0.85rem;
+      color: #3a6189;
+      width: 1.2rem;
+    }
+
+    /* summary text */
+    .summary-text {
+      font-size: 0.95rem;
+      color: #1f3142;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    /* lists & items */
+    .item-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .item-list li {
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      border-left: 3px solid transparent;
+      padding-left: 0.75rem;
+      transition: border 0.15s;
+    }
+
+    .item-list li strong {
+      font-weight: 600;
+      color: #0b1f30;
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+
+    .item-list li .meta {
+      font-weight: 500;
+      color: #1f3a57;
+      font-size: 0.8rem;
+    }
+
+    .item-list li .desc {
+      color: #2b4057;
+      font-size: 0.88rem;
+      margin-top: 0.2rem;
+      display: block;
+    }
+
+    .item-list li .desc i {
+      margin-right: 0.3rem;
+      color: #3d6b94;
+      width: 1rem;
+    }
+
+    .skills-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 0.5rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-tag {
+      background: #eef3f9;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #1f3a57;
+      letter-spacing: 0.2px;
+      border: 1px solid transparent;
+      transition: all 0.1s ease;
+    }
+
+    .skill-tag:hover {
+      background: #dfe8f2;
+      border-color: #b6c9db;
+    }
+
+    .edu-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-item .title {
+      font-weight: 600;
+      color: #0b1f30;
+    }
+
+    .edu-item .details {
+      font-size: 0.85rem;
+      color: #2f4a64;
+    }
+
+    .cert-item, .lang-item {
+      font-size: 0.9rem;
+      padding: 0.2rem 0;
+      border-bottom: 1px dashed #e3eaf0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .cert-item:last-child, .lang-item:last-child {
+      border-bottom: none;
+    }
+
+    .cert-item i, .lang-item i {
+      color: #2f5a7a;
+      width: 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    .ref-item {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-top: 0.2rem;
+    }
+
+    .ref-item .name {
+      font-weight: 600;
+      color: #0b1f30;
+    }
+
+    .ref-item .title {
+      font-size: 0.8rem;
+      color: #2f4a64;
+    }
+
+    .ref-item .email {
+      font-size: 0.8rem;
+      color: #1d4b77;
+      word-break: break-all;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, #d0d9e3, transparent);
+      margin: 1.2rem 0;
+    }
+
+    /* responsive */
+    @media (max-width: 720px) {
+      .cv-container {
+        padding: 1.8rem 1.5rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+      .subhead {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* subtle hover on sections */
+    .section:hover .section-title {
+      color: #003366;
+      transition: color 0.15s;
+    }
+
+    .section-title i {
+      transition: transform 0.2s;
+    }
+    .section:hover .section-title i {
+      transform: translateX(2px);
+    }
+
+    /* mini badge */
+    .badge-cgpa {
+      background: #dce5ef;
+      border-radius: 40px;
+      padding: 0.1rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #1a3550;
+      display: inline-block;
+      margin-left: 0.5rem;
+    }
+
+    .workplace {
+      font-weight: 500;
+      color: #1e3d5e;
+    }
+  </style>
+</head>
+<body>
+<div class="cv-container">
+  <!-- header -->
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;">
+    <div>
+      <h1>Danish<span style="font-weight:300; color:#3a5c7a;"> · </span>CV</h1>
+      <div style="font-size:1rem; font-weight:400; color:#2b4b6a; margin-top:0.1rem;">Computer Engineering Graduate</div>
+    </div>
+    <div style="font-size:0.8rem; background:#eaf0f7; padding:0.2rem 1.2rem; border-radius:40px; color:#1b3c5c; font-weight:500; margin-top:0.2rem;">
+      <i class="fas fa-bolt" style="margin-right:6px;"></i> IoT · AI · Embedded
+    </div>
+  </div>
+
+  <div class="subhead">
+    <span><i class="fas fa-graduation-cap" style="margin-right:8px;"></i> UniMAP · CGPA 3.78</span>
+    <span><i class="fas fa-calendar-alt" style="margin-right:6px;"></i> Oct 2021 – Aug 2025</span>
+  </div>
+
+  <!-- grid -->
+  <div class="grid-2">
+    <!-- left column -->
+    <div class="left-col">
+      <!-- PROFESSIONAL SUMMARY -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-user"></i> Profile</div>
+        <div class="summary-text">
+          A motivated Computer Engineering graduate with strong interests in software development, embedded systems, Internet of Things (IoT), and artificial intelligence. Through academic projects and industrial exposure, I have developed problem-solving, teamwork, and technical skills. Eager to contribute to engineering projects while continuing to grow professionally.
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+        <div style="margin-bottom: 0.75rem;">
+          <div style="font-weight:600; font-size:0.8rem; color:#1f3f5c; letter-spacing:0.3px; margin-bottom:0.2rem;">Programming</div>
+          <div class="skills-tags">
+            <span class="skill-tag">Python</span><span class="skill-tag">Java</span><span class="skill-tag">C++</span>
+            <span class="skill-tag">JavaScript</span><span class="skill-tag">HTML</span><span class="skill-tag">CSS</span>
+          </div>
+        </div>
+        <div style="margin-bottom: 0.75rem;">
+          <div style="font-weight:600; font-size:0.8rem; color:#1f3f5c; letter-spacing:0.3px; margin-bottom:0.2rem;">Tools &amp; Hardware</div>
+          <div class="skills-tags">
+            <span class="skill-tag">GitHub</span><span class="skill-tag">VS Code</span><span class="skill-tag">Arduino IDE</span>
+            <span class="skill-tag">MATLAB</span><span class="skill-tag">Proteus</span>
+            <span class="skill-tag">ESP32</span><span class="skill-tag">ESP8266</span>
+            <span class="skill-tag">Arduino Uno</span><span class="skill-tag">Raspberry Pi</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:600; font-size:0.8rem; color:#1f3f5c; letter-spacing:0.3px; margin-bottom:0.2rem;">Database</div>
+          <div class="skills-tags">
+            <span class="skill-tag">MySQL</span><span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGUAGES + CERTIFICATIONS (condensed) -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-language"></i> Languages</div>
+        <div class="lang-item"><i class="fas fa-check-circle"></i> Malay (native)</div>
+        <div class="lang-item"><i class="fas fa-check-circle"></i> English (professional)</div>
+      </div>
+
+      <div class="section">
+        <div class="section-title"><i class="fas fa-medal"></i> Certifications</div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> Cisco Networking Essentials</div>
+        <div class="cert-item"><i class="fas fa-certificate"></i> Google Data Analytics</div>
+        <div class="cert-item" style="border-bottom: none;"><i class="fas fa-award"></i> Dean's Award (Sem 2, 4, 6)</div>
+        <div class="cert-item" style="border-bottom: none; margin-top:0.1rem;"><i class="fas fa-trophy"></i> Gold Medal · UniMAP Innovation 2024</div>
+      </div>
+    </div>
+
+    <!-- right column -->
+    <div class="right-col">
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+        <ul class="item-list">
+          <li style="border-left-color: #2a5f8a; padding-left: 0.9rem;">
+            <strong>Intel Technology Malaysia Sdn. Bhd., Penang</strong>
+            <span class="meta">Feb 2025 – Aug 2025 · Internship</span>
+            <span class="desc"><i class="fas fa-microchip"></i> Assisted engineers in automated testing activities.</span>
+            <span class="desc"><i class="fas fa-chart-bar"></i> Supported production data analysis and reporting.</span>
+            <span class="desc"><i class="fas fa-cloud-upload-alt"></i> Participated in IoT-based predictive maintenance projects.</span>
+            <span class="desc"><i class="fas fa-file-alt"></i> Prepared technical documentation and reports.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-flask"></i> Projects</div>
+        <ul class="item-list">
+          <li style="border-left-color: #2a5f8a;">
+            <strong>Smart Parking Monitoring System</strong>
+            <span class="desc"><i class="fas fa-parking"></i> IoT-based parking availability monitoring using ESP32 &amp; Firebase.</span>
+          </li>
+          <li style="border-left-color: #2a5f8a;">
+            <strong>Student Academic Guidance System</strong>
+            <span class="desc"><i class="fas fa-graduation-cap"></i> Web-based academic recommendation system using PHP &amp; MySQL.</span>
+          </li>
+          <li style="border-left-color: #2a5f8a; border-bottom: none;">
+            <strong>Smart Home Automation System</strong>
+            <span class="desc"><i class="fas fa-home"></i> Remote monitoring and appliance control using ESP8266.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- EDUCATION + REFERENCES (combined for compactness) -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-university"></i> Education</div>
+        <div class="edu-item">
+          <div class="title">Universiti Malaysia Perlis (UniMAP) <span class="badge-cgpa">CGPA 3.78</span></div>
+          <div class="details">Bachelor of Computer Engineering (Hons.) · Oct 2021 – Aug 2025</div>
+        </div>
+        <!-- Awards inline -->
+        <div style="font-size:0.85rem; color:#1d3a57; margin-top:0.2rem; background:#f3f7fc; padding:0.3rem 1rem; border-radius:40px; display:inline-block;">
+          <i class="fas fa-award" style="margin-right:6px;"></i> Dean's Award (Sem 2,4,6) · Gold Medal 2024
+        </div>
+      </div>
+
+      <!-- REFERENCES -->
+      <div class="section">
+        <div class="section-title"><i class="fas fa-address-card"></i> Reference</div>
+        <div class="ref-item">
+          <div class="name">Ts. Dr. Ahmad Faizal Bin Mohd Noor</div>
+          <div class="title">Senior Lecturer, School of Computer Engineering, UniMAP</div>
+          <div class="email"><i class="fas fa-envelope" style="margin-right:6px;"></i> faizal@unimap.edu.my</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- subtle footer -->
+  <hr>
+  <div style="display: flex; justify-content: space-between; font-size:0.7rem; color:#4f6b84; letter-spacing:0.3px; padding-top:0.3rem; flex-wrap:wrap;">
+    <span><i class="fas fa-robot" style="margin-right:4px;"></i> Computer Engineering · IoT · AI</span>
+    <span><i class="fas fa-code"></i> built with strict precision</span>
+  </div>
+</div>
+</body>
+</html>
